@@ -29,4 +29,14 @@
 将dcm序列根据数据切割成为肿瘤所在位置的多层切片
 
     crop_in_3d.py [option] # 详见--help
+    
+包含get_segmented_lungs函数，将CT层图中肺部部分分割并返回
+
+    cut_lung.py 
+    
+将CT序列层叠，切割分离，并建立3d视图（很慢）
+
+*[参考资料](https://www.kaggle.com/arnavkj95/data-science-bowl-2017/candidate-generation-and-luna16-preprocessing "Kaggle")*
+
+    plot_3d.py
 
