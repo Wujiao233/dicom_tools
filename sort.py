@@ -18,13 +18,9 @@ def get_path_filelist(path, filter=None):
     return file_list
 
 
-while True:
-    path = input('Path:')
-    filter_name = '.dcm'
-
+def sort(path, filter=".dcm"):
     if os.path.isdir(path):
-        file_list = get_path_filelist(path, filter_name)
-        # print(file_list)
+        file_list = get_path_filelist(path, filter)
         deep_and_filename = {}
         for f in file_list:
             dicom_tmp = dicom.read_file(path + '/' + f)
@@ -39,4 +35,12 @@ while True:
             os.renames(path + '/' + old_name, path + '/' + str(counter) + '.dcm')
             counter += 1
 
-        print(deep_list)
+            # print(deep_list)
+
+
+if __name__ == "__main__":
+    while True:
+        path = input('Path:')
+        filter_name = '.dcm'
+
+        sort(path, filter_name)

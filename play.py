@@ -20,8 +20,29 @@ def play(array):
     plt.show()
 
 
+def play_comp(array, array_2):
+    fig = plt.figure(0, figsize=(2, 2))
+    im = plt.imshow(array[0], vmin=-2000, vmax=4095, cmap=pylab.cm.bone)
+
+    def animate(i):
+        im.set_array(array[i])
+        return [im]
+
+    anim = animation.FuncAnimation(fig, animate, frames=len(array), interval=60, blit=True)
+
+    fig2 = plt.figure(1, figsize=(2, 2))
+    im2 = plt.imshow(array_2[0], vmin=-2000, vmax=4095, cmap=pylab.cm.bone)
+
+    def animate_2(i):
+        im2.set_array(array_2[i])
+        return [im2]
+
+    anim2 = animation.FuncAnimation(fig2, animate_2, frames=len(array_2), interval=60, blit=True)
+    plt.show()
+
+
 if __name__ == "__main__":
-    def get_path_filelist(path, filter=None):
+    def get_path_filelist(path, filter=".dcm"):
         files = os.listdir(path)
         file_list = []
         for f in files:
